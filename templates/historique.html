@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Historique des parties</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<h1>📜 Historique des parties</h1>
+
+{% if parties %}
+
+<table class="historique-table">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Joueur Sud</th>
+            <th>Joueur Nord</th>
+            <th>Score Sud</th>
+            <th>Score Nord</th>
+            <th>Gagnant</th>
+            <th>Statut</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for partie in parties %}
+
+        <tr>
+
+            <td>{{ partie.id }}</td>
+
+            <td>{{ partie.joueur_sud }}</td>
+
+            <td>{{ partie.joueur_nord }}</td>
+
+            <td>{{ partie.score_sud }}</td>
+
+            <td>{{ partie.score_nord }}</td>
+
+            <td>
+                {% if partie.gagnant %}
+                    🏆 {{ partie.gagnant }}
+                {% else %}
+                    -
+                {% endif %}
+            </td>
+
+            <td>
+                {% if partie.terminee %}
+                    ✅ Terminée
+                {% else %}
+                    ⏳ En cours
+                {% endif %}
+            </td>
+
+            <td>
+                {{ partie.date_partie.strftime('%d/%m/%Y %H:%M') }}
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% else %}
+
+<p>Aucune partie enregistrée.</p>
+
+{% endif %}
+
+<br><br>
+
+<a href="/">⬅ Retour accueil</a>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nouvelle Partie</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="menu-container">
+
+        <h1>🎮 Nouvelle Partie</h1>
+
+        <p>Choisissez votre mode de jeu</p>
+
+        <div class="menu-buttons">
+
+            <a href="/game/humain">
+                <button class="mode-btn">
+                    👥 Humain vs Humain
+                </button>
+            </a>
+
+            <a href="/game/ia">
+                <button class="mode-btn">
+                    🤖 Humain vs IA
+                </button>
+            </a>
+
+        </div>
+
+        <br>
+
+        <a href="/">
+            Retour accueil
+        </a>
+
+    </div>
+
+</body>
+</html>

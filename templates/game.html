@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Songo</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>🎮 Jeu de Songo</h1>
+
+    <div class="scores">
+
+        <div class="score-box">
+            <h2>NORD</h2>
+            <span id="score-nord">0</span>
+        </div>
+
+        <div class="score-box">
+            <h2>SUD</h2>
+            <span id="score-sud">0</span>
+        </div>
+
+    </div>
+
+    <div id="info">
+        Chargement...
+    </div>
+
+    <div id="plateau">
+
+        <div id="nord" class="ligne"></div>
+
+        <div id="sud" class="ligne"></div>
+
+    </div>
+
+    <!-- FENETRE DE FIN DE PARTIE -->
+
+    <div id="victoryModal" class="modal">
+
+        <div class="modal-content">
+
+            <h1 class="victory-title">
+                🏆 Partie Terminée !
+            </h1>
+
+            <h2 id="winnerText">
+            </h2>
+
+            <div class="confetti">
+                🎉 🎊 ✨ 🎉 🎊 ✨ 🎉 🎊 ✨
+            </div>
+
+            <button class="btn-victoire"
+                    onclick="nouvellePartie()">
+                Nouvelle Partie
+            </button>
+
+            <br><br>
+
+            <a href="/">
+                <button class="btn-retour">
+                    Retour Accueil
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+    <script>
+    const MODE = "{{ mode }}";
+</script>
+
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+
+</body>
+</html>
