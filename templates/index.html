@@ -7,10 +7,46 @@
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .regles-container{
+            margin-top:50px;
+            width:90%;
+            max-width:900px;
+            margin-left:auto;
+            margin-right:auto;
+            padding:20px;
+            border-radius:10px;
+            background:#f5f5f5;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+            text-align:left;
+            font-size:18px;
+            line-height:1.7;
+            min-height:180px;
+        }
+
+        #texteRegles{
+            white-space:pre-wrap;
+        }
+
+        .curseur{
+            display:inline-block;
+            animation:clignoter 0.8s infinite;
+        }
+
+        @keyframes clignoter{
+            50%{
+                opacity:0;
+            }
+        }
+
+    </style>
+
 </head>
 <body>
 
-    <h1>Jeu de Songo</h1>
+    <h1>🎮 Jeu de Songo</h1>
 
     <a href="/nouvelle-partie">
         <button>Nouvelle Partie</button>
@@ -19,6 +55,54 @@
     <a href="/historique">
         <button>Historique</button>
     </a>
+
+    <div class="regles-container">
+
+        <h2>📖 Règles du Songo</h2>
+
+        <p id="texteRegles"></p>
+
+        <span class="curseur">|</span>
+
+    </div>
+
+    <script>
+
+        const texte = `
+Le Songo est un jeu traditionnel africain de stratégie.
+
+Le plateau comporte 14 cases réparties en deux rangées de 7 cases.
+
+Chaque case contient initialement 5 graines.
+
+À son tour, un joueur choisit une case de son camp et distribue toutes les graines une à une dans les cases suivantes.
+
+Lorsqu'un coup permet de capturer des graines adverses selon les règles du jeu, celles-ci sont ajoutées au score du joueur.
+
+Le but est d'obtenir le plus grand nombre de graines capturées avant la fin de la partie.
+
+Le joueur qui possède le score le plus élevé remporte la victoire.
+
+Bonne chance et amusez-vous bien !
+`;
+
+        let i = 0;
+
+        function ecrireTexte() {
+
+            if (i < texte.length) {
+
+                document.getElementById("texteRegles").innerHTML += texte.charAt(i);
+
+                i++;
+
+                setTimeout(ecrireTexte, 35);
+            }
+        }
+
+        window.onload = ecrireTexte;
+
+    </script>
 
 </body>
 </html>
