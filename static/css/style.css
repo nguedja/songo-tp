@@ -455,3 +455,68 @@ button:hover {
 
     background: #60a5fa;
 }
+/* ===================================
+   RESPONSIVE MOBILE
+=================================== */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .scores {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    #plateau {
+        padding: 10px;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+
+    .ligne {
+        gap: 5px;
+    }
+
+    .case {
+        width: 42px;
+        height: 42px;
+        font-size: 14px;
+        border-width: 2px;
+    }
+
+    .mode-btn {
+        width: 90%;
+        max-width: 300px;
+        height: 70px;
+        font-size: 18px;
+    }
+
+    .menu-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .historique-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .victory-title {
+        font-size: 28px;
+    }
+
+    .confetti {
+        font-size: 22px;
+    }
+}
